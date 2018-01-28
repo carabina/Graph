@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9FE9457C201DB50200F192AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9457B201DB50200F192AE /* AppDelegate.swift */; };
+		9FE9457E201DB50200F192AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9457D201DB50200F192AE /* ViewController.swift */; };
+		9FE94583201DB50200F192AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE94582201DB50200F192AE /* Assets.xcassets */; };
+		9FE94586201DB50200F192AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE94584201DB50200F192AE /* LaunchScreen.storyboard */; };
+		9FE94591201DB50200F192AE /* OmniGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE94590201DB50200F192AE /* OmniGraphTests.swift */; };
+		9FE9459C201DB50200F192AE /* OmniGraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE9459B201DB50200F192AE /* OmniGraphUITests.swift */; };
+		9FE945AD201DB66700F192AE /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945AC201DB66700F192AE /* LineGraph.swift */; };
+		9FE945AF201DB6AD00F192AE /* LineGraphDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945AE201DB6AD00F192AE /* LineGraphDataPoint.swift */; };
+		9FE945B1201DB6D300F192AE /* LineGraphDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945B0201DB6D300F192AE /* LineGraphDataSet.swift */; };
+		9FE945B3201DB71000F192AE /* LineGraphDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945B2201DB71000F192AE /* LineGraphDelegate.swift */; };
+		9FE945B6201DBF7E00F192AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE945B4201DBF7E00F192AE /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FE9458D201DB50200F192AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE94570201DB50200F192AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE94577201DB50200F192AE;
+			remoteInfo = OmniGraph;
+		};
+		9FE94598201DB50200F192AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FE94570201DB50200F192AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FE94577201DB50200F192AE;
+			remoteInfo = OmniGraph;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9FE94578201DB50200F192AE /* OmniGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE9457B201DB50200F192AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9FE9457D201DB50200F192AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FE94582201DB50200F192AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9FE94585201DB50200F192AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9FE94587201DB50200F192AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE9458C201DB50200F192AE /* OmniGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE94590201DB50200F192AE /* OmniGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniGraphTests.swift; sourceTree = "<group>"; };
+		9FE94592201DB50200F192AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE94597201DB50200F192AE /* OmniGraphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniGraphUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE9459B201DB50200F192AE /* OmniGraphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniGraphUITests.swift; sourceTree = "<group>"; };
+		9FE9459D201DB50300F192AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FE945AC201DB66700F192AE /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
+		9FE945AE201DB6AD00F192AE /* LineGraphDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphDataPoint.swift; sourceTree = "<group>"; };
+		9FE945B0201DB6D300F192AE /* LineGraphDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphDataSet.swift; sourceTree = "<group>"; };
+		9FE945B2201DB71000F192AE /* LineGraphDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphDelegate.swift; sourceTree = "<group>"; };
+		9FE945B5201DBF7E00F192AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../../../../Volumes/saurabh/Movie/MMPGraphView-master-2/MMPGraphView/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9FE94575201DB50200F192AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE94589201DB50200F192AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE94594201DB50200F192AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9FE9456F201DB50200F192AE = {
+			isa = PBXGroup;
+			children = (
+				9FE9457A201DB50200F192AE /* OmniGraph */,
+				9FE9458F201DB50200F192AE /* OmniGraphTests */,
+				9FE9459A201DB50200F192AE /* OmniGraphUITests */,
+				9FE94579201DB50200F192AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9FE94579201DB50200F192AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FE94578201DB50200F192AE /* OmniGraph.app */,
+				9FE9458C201DB50200F192AE /* OmniGraphTests.xctest */,
+				9FE94597201DB50200F192AE /* OmniGraphUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FE9457A201DB50200F192AE /* OmniGraph */ = {
+			isa = PBXGroup;
+			children = (
+				9FE945B4201DBF7E00F192AE /* Main.storyboard */,
+				9FE945A9201DB55500F192AE /* LIneGraph */,
+				9FE9457B201DB50200F192AE /* AppDelegate.swift */,
+				9FE9457D201DB50200F192AE /* ViewController.swift */,
+				9FE94582201DB50200F192AE /* Assets.xcassets */,
+				9FE94584201DB50200F192AE /* LaunchScreen.storyboard */,
+				9FE94587201DB50200F192AE /* Info.plist */,
+			);
+			path = OmniGraph;
+			sourceTree = "<group>";
+		};
+		9FE9458F201DB50200F192AE /* OmniGraphTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FE94590201DB50200F192AE /* OmniGraphTests.swift */,
+				9FE94592201DB50200F192AE /* Info.plist */,
+			);
+			path = OmniGraphTests;
+			sourceTree = "<group>";
+		};
+		9FE9459A201DB50200F192AE /* OmniGraphUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9FE9459B201DB50200F192AE /* OmniGraphUITests.swift */,
+				9FE9459D201DB50300F192AE /* Info.plist */,
+			);
+			path = OmniGraphUITests;
+			sourceTree = "<group>";
+		};
+		9FE945A9201DB55500F192AE /* LIneGraph */ = {
+			isa = PBXGroup;
+			children = (
+				9FE945AA201DB55500F192AE /* Data */,
+				9FE945AB201DB55500F192AE /* View */,
+			);
+			path = LIneGraph;
+			sourceTree = "<group>";
+		};
+		9FE945AA201DB55500F192AE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9FE945AE201DB6AD00F192AE /* LineGraphDataPoint.swift */,
+				9FE945B0201DB6D300F192AE /* LineGraphDataSet.swift */,
+				9FE945B2201DB71000F192AE /* LineGraphDelegate.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9FE945AB201DB55500F192AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9FE945AC201DB66700F192AE /* LineGraph.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9FE94577201DB50200F192AE /* OmniGraph */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE945A0201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraph" */;
+			buildPhases = (
+				9FE94574201DB50200F192AE /* Sources */,
+				9FE94575201DB50200F192AE /* Frameworks */,
+				9FE94576201DB50200F192AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OmniGraph;
+			productName = OmniGraph;
+			productReference = 9FE94578201DB50200F192AE /* OmniGraph.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FE9458B201DB50200F192AE /* OmniGraphTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE945A3201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraphTests" */;
+			buildPhases = (
+				9FE94588201DB50200F192AE /* Sources */,
+				9FE94589201DB50200F192AE /* Frameworks */,
+				9FE9458A201DB50200F192AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE9458E201DB50200F192AE /* PBXTargetDependency */,
+			);
+			name = OmniGraphTests;
+			productName = OmniGraphTests;
+			productReference = 9FE9458C201DB50200F192AE /* OmniGraphTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9FE94596201DB50200F192AE /* OmniGraphUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FE945A6201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraphUITests" */;
+			buildPhases = (
+				9FE94593201DB50200F192AE /* Sources */,
+				9FE94594201DB50200F192AE /* Frameworks */,
+				9FE94595201DB50200F192AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FE94599201DB50200F192AE /* PBXTargetDependency */,
+			);
+			name = OmniGraphUITests;
+			productName = OmniGraphUITests;
+			productReference = 9FE94597201DB50200F192AE /* OmniGraphUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FE94570201DB50200F192AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Saurabh shrivastava";
+				TargetAttributes = {
+					9FE94577201DB50200F192AE = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					9FE9458B201DB50200F192AE = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = 9FE94577201DB50200F192AE;
+					};
+					9FE94596201DB50200F192AE = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = 9FE94577201DB50200F192AE;
+					};
+				};
+			};
+			buildConfigurationList = 9FE94573201DB50200F192AE /* Build configuration list for PBXProject "OmniGraph" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9FE9456F201DB50200F192AE;
+			productRefGroup = 9FE94579201DB50200F192AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9FE94577201DB50200F192AE /* OmniGraph */,
+				9FE9458B201DB50200F192AE /* OmniGraphTests */,
+				9FE94596201DB50200F192AE /* OmniGraphUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FE94576201DB50200F192AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE945B6201DBF7E00F192AE /* Main.storyboard in Resources */,
+				9FE94586201DB50200F192AE /* LaunchScreen.storyboard in Resources */,
+				9FE94583201DB50200F192AE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE9458A201DB50200F192AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE94595201DB50200F192AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9FE94574201DB50200F192AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE9457E201DB50200F192AE /* ViewController.swift in Sources */,
+				9FE945B3201DB71000F192AE /* LineGraphDelegate.swift in Sources */,
+				9FE945AF201DB6AD00F192AE /* LineGraphDataPoint.swift in Sources */,
+				9FE945B1201DB6D300F192AE /* LineGraphDataSet.swift in Sources */,
+				9FE945AD201DB66700F192AE /* LineGraph.swift in Sources */,
+				9FE9457C201DB50200F192AE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE94588201DB50200F192AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE94591201DB50200F192AE /* OmniGraphTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FE94593201DB50200F192AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FE9459C201DB50200F192AE /* OmniGraphUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FE9458E201DB50200F192AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE94577201DB50200F192AE /* OmniGraph */;
+			targetProxy = 9FE9458D201DB50200F192AE /* PBXContainerItemProxy */;
+		};
+		9FE94599201DB50200F192AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FE94577201DB50200F192AE /* OmniGraph */;
+			targetProxy = 9FE94598201DB50200F192AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9FE94584201DB50200F192AE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE94585201DB50200F192AE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9FE945B4201DBF7E00F192AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FE945B5201DBF7E00F192AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9FE9459E201DB50300F192AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9FE9459F201DB50300F192AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9FE945A1201DB50300F192AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T4NTT89B96;
+				INFOPLIST_FILE = OmniGraph/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.OmniGraph;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9FE945A2201DB50300F192AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = T4NTT89B96;
+				INFOPLIST_FILE = OmniGraph/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.OmniGraph;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9FE945A4201DB50300F192AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T4NTT89B96;
+				INFOPLIST_FILE = OmniGraphTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.OmniGraphTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmniGraph.app/OmniGraph";
+			};
+			name = Debug;
+		};
+		9FE945A5201DB50300F192AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T4NTT89B96;
+				INFOPLIST_FILE = OmniGraphTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.OmniGraphTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmniGraph.app/OmniGraph";
+			};
+			name = Release;
+		};
+		9FE945A7201DB50300F192AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = T4NTT89B96;
+				INFOPLIST_FILE = OmniGraphUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.OmniGraphUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OmniGraph;
+			};
+			name = Debug;
+		};
+		9FE945A8201DB50300F192AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = T4NTT89B96;
+				INFOPLIST_FILE = OmniGraphUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.OmniGraphUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OmniGraph;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9FE94573201DB50200F192AE /* Build configuration list for PBXProject "OmniGraph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE9459E201DB50300F192AE /* Debug */,
+				9FE9459F201DB50300F192AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FE945A0201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE945A1201DB50300F192AE /* Debug */,
+				9FE945A2201DB50300F192AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE945A3201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraphTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE945A4201DB50300F192AE /* Debug */,
+				9FE945A5201DB50300F192AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9FE945A6201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraphUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FE945A7201DB50300F192AE /* Debug */,
+				9FE945A8201DB50300F192AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9FE94570201DB50200F192AE /* Project object */;
+}
