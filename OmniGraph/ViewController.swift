@@ -17,23 +17,27 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let primaryDataSet = LineGraphDataSet(title: "Reach",
-                                             dataPoints: [LineGraphTestData(title: "Tier1", value: 365),
-                                                          LineGraphTestData(title: "Tier2", value: 365),
-                                                          LineGraphTestData(title: "Tier3", value: 385),
-                                                          LineGraphTestData(title: "Tier4", value: 385),
+                                             dataPoints: [LineGraphTestData(title: "Tier1", value: 365.0),
+                                                          LineGraphTestData(title: "Tier2", value: 365.0),
+                                                          LineGraphTestData(title: "Tier3", value: 385.0),
+                                                          LineGraphTestData(title: "Tier4", value: 38),
                                                           LineGraphTestData(title: "Tier5", value: 405)],
                                              color: UIColor.white)
         
         let secondaryDataSet = LineGraphDataSet(title: "Frequency",
-                                               dataPoints: [LineGraphTestData(title: "Tier1", value: 6),
+                                               dataPoints: [LineGraphTestData(title: "Tier1", value: 5),
                                                             LineGraphTestData(title: "Tier2", value: 4),
-                                                            LineGraphTestData(title: "Tier3", value: 6),
+                                                            LineGraphTestData(title: "Tier3", value: 5),
                                                             LineGraphTestData(title: "Tier4", value: 4),
                                                             LineGraphTestData(title: "Tier5", value: 2)],
                                                color: UIColor.blue)
         
         let dataPlot = LineGraphDataPlot(title: "Frequency vs Reach", primaryDataSet: primaryDataSet, secondaryDataSet:secondaryDataSet)
         lineGraph.dataPlots = [dataPlot]
+        
+        lineGraph.layer.cornerRadius   = 6.0
+        lineGraph.clipsToBounds        = true
+        
         
         
     }

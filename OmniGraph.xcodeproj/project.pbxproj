@@ -17,7 +17,7 @@
 		9FE945AF201DB6AD00F192AE /* LineGraphDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945AE201DB6AD00F192AE /* LineGraphDataPoint.swift */; };
 		9FE945B1201DB6D300F192AE /* LineGraphDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945B0201DB6D300F192AE /* LineGraphDataSet.swift */; };
 		9FE945B3201DB71000F192AE /* LineGraphDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE945B2201DB71000F192AE /* LineGraphDelegate.swift */; };
-		9FE945B6201DBF7E00F192AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE945B4201DBF7E00F192AE /* Main.storyboard */; };
+		9FE945BE201E118A00F192AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FE945BA201E0F5900F192AE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,8 @@
 		9FE945AE201DB6AD00F192AE /* LineGraphDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphDataPoint.swift; sourceTree = "<group>"; };
 		9FE945B0201DB6D300F192AE /* LineGraphDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphDataSet.swift; sourceTree = "<group>"; };
 		9FE945B2201DB71000F192AE /* LineGraphDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphDelegate.swift; sourceTree = "<group>"; };
-		9FE945B5201DBF7E00F192AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../../../../Volumes/saurabh/Movie/MMPGraphView-master-2/MMPGraphView/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		9FE945BB201E0F5900F192AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9FE945BD201E118800F192AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +106,7 @@
 		9FE9457A201DB50200F192AE /* OmniGraph */ = {
 			isa = PBXGroup;
 			children = (
-				9FE945B4201DBF7E00F192AE /* Main.storyboard */,
+				9FE945BA201E0F5900F192AE /* Main.storyboard */,
 				9FE945A9201DB55500F192AE /* LIneGraph */,
 				9FE9457B201DB50200F192AE /* AppDelegate.swift */,
 				9FE9457D201DB50200F192AE /* ViewController.swift */,
@@ -265,7 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FE945B6201DBF7E00F192AE /* Main.storyboard in Resources */,
+				9FE945BE201E118A00F192AE /* Main.storyboard in Resources */,
 				9FE94586201DB50200F192AE /* LaunchScreen.storyboard in Resources */,
 				9FE94583201DB50200F192AE /* Assets.xcassets in Resources */,
 			);
@@ -341,10 +342,11 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		9FE945B4201DBF7E00F192AE /* Main.storyboard */ = {
+		9FE945BA201E0F5900F192AE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9FE945B5201DBF7E00F192AE /* Base */,
+				9FE945BB201E0F5900F192AE /* Base */,
+				9FE945BD201E118800F192AE /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -564,6 +566,7 @@
 				9FE945A2201DB50300F192AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE945A3201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraphTests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +575,7 @@
 				9FE945A5201DB50300F192AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9FE945A6201DB50300F192AE /* Build configuration list for PBXNativeTarget "OmniGraphUITests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +584,7 @@
 				9FE945A8201DB50300F192AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

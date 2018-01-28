@@ -108,13 +108,13 @@ extension NSString
         }
         
         // Configure and add the average label
-        if !subviews.contains(averageValueLabel) {
-            averageValueLabel.font          = LineGraphView.regularFont(12.0)
-            averageValueLabel.textColor     = UIColor.white
-            averageValueLabel.textAlignment = titleAlignment
-            averageValueLabel.text          = ""
-            insertSubview(averageValueLabel, belowSubview: titleLabel)
-        }
+//        if !subviews.contains(averageValueLabel) {
+//            averageValueLabel.font          = LineGraphView.regularFont(12.0)
+//            averageValueLabel.textColor     = UIColor.white
+//            averageValueLabel.textAlignment = titleAlignment
+//            averageValueLabel.text          = ""
+//            insertSubview(averageValueLabel, belowSubview: titleLabel)
+//        }
         
         if plotSegmentedController == nil && dataPlots.count > 1 {
             
