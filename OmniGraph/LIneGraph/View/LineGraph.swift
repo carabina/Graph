@@ -154,8 +154,6 @@ extension NSString
             fullScreenButton!.frame     = CGRect(x: 15.0, y: 15.0, width: fullScreenButtonSide, height: fullScreenButtonSide)
             
             fullScreenButton!.autoresizingMask = [.flexibleRightMargin, .flexibleBottomMargin]
-//            fullScreenButton?.setBackgroundImage(LineGraphView.fullScreenImage(), for: UIControlState())
-            fullScreenButton!.addTarget(self, action: #selector(LineGraphView.fullScreenButtonTapped(_:)), for: .touchUpInside)
             addSubview(fullScreenButton!)
         }
     }
@@ -357,8 +355,8 @@ extension NSString
                 dataAverage /= CGFloat(currentDataSet.dataPoints.count)
                 delegate?.averageCalculated?(self, graphDataAverage: dataAverage, dataSet: currentDataSet)
                 
-                let avgString = NSString.singlePrecisionFloat(dataAverage, attemptToTrim: true)
-                averageValueLabel.text = (averageValueLabel.text!.characters.count > 0) ? "\(averageValueLabel.text!) | \(avgString)" : "Average: \(avgString)"
+//                let avgString = NSString.singlePrecisionFloat(dataAverage, attemptToTrim: true)
+//                averageValueLabel.text = (averageValueLabel.text!.characters.count > 0) ? "\(averageValueLabel.text!) | \(avgString)" : "Average: \(avgString)"
                 
                 // Draw the 3 horizontal lines and the indicator lablese
                 let graphMidPtY   = graphInsetFrame.origin.y + graphInsetFrame.size.height/2.0
@@ -395,7 +393,7 @@ extension NSString
                     currentLabel.sizeToFit()
                     
                     // Primary data points are drawn on the right margin, secondary on the left
-                    let xOrigin = (index == 0) ? (bgLineWidth+10.0) : (graphInsetFrame.origin.x - (currentLabel.bounds.width + 10.0))
+                    let xOrigin = (index == 0) ? (bgLineWidth+10.0) : (graphInsetFrame.origin.x - (currentLabel.bounds.width))
                     currentLabel.drawText(in: CGRect(x: xOrigin, y: currentBGYPoint-10, width: bounds.width-(bgLineWidth + 5), height: 20))
                 }
                 
@@ -498,12 +496,6 @@ extension NSString
             }
         }
     }
-    
-    /// Responsible for reacting to the user tapping the full screen presentation button
-    @objc func fullScreenButtonTapped(_ sender:UIButton)
-    {
-        delegate?.showFullScreenGraph?(self)
-    }
 }
 
 
@@ -528,16 +520,6 @@ extension LineGraphView {
     static func lightFont()->UIFont {
         return UIFont.systemFont(ofSize: 14.0)
     }
-    
-    /**
-     arrows example image is made by Vaadin http://www.flaticon.com/authors/vaadin
-     distributed on http://www.flaticon.com
-     
-     - returns: The UIImage to be used in the full screen button
-     */
-//    static func fullScreenImage()->UIImage {
-//        return UIImage(named: "arrows")!
-//    }
     
 }
 
