@@ -192,6 +192,7 @@ extension NSString
         titleLabel.textAlignment = titleAlignment
         let xOrigin              = (titleAlignment == .center) ? (bounds.width*0.25) : max(graphInsetFrame.origin.x, 40.0)
         titleLabel.frame         = CGRect(x: xOrigin, y: titleYPadding, width: labelWidth, height: labelHeight)
+        titleLabel.contentMode = .scaleAspectFill
         averageValueLabel.frame         = CGRect(x: xOrigin, y: titleLabel.frame.maxY, width: labelWidth, height: 16.0)
         averageValueLabel.textAlignment = titleAlignment
         
@@ -208,15 +209,15 @@ extension NSString
         {
             // Set up the title text
             // This is in draw rect becuase it needs to get reset everytime that the segmented controller value changes
-            let titleFont = isFullScreen ? LineGraphView.boldFont(18.0) : LineGraphView.boldFont()
+            let titleFont = isFullScreen ? LineGraphView.regularFont(12.0) : LineGraphView.regularFont(15.0)
             if let secondaryData = dataPlots[currentPlotIdx].secondaryDataSet
             {
                 let primaryDataSet = dataPlots[currentPlotIdx].primaryDataSet
                 let titleAttributeText = NSMutableAttributedString(string: "\(primaryDataSet.dataTitle) vs \(secondaryData.dataTitle)",
                     attributes: [NSAttributedStringKey.font : titleFont,
                                  NSAttributedStringKey.foregroundColor : UIColor.white])
-                titleAttributeText.addAttributes([NSAttributedStringKey.foregroundColor:primaryDataSet.color], range: NSMakeRange(0, primaryDataSet.dataTitle.characters.count))
-                titleAttributeText.addAttributes([NSAttributedStringKey.foregroundColor:secondaryData.color], range: NSMakeRange(primaryDataSet.dataTitle.characters.count + 4, secondaryData.dataTitle.characters.count))
+                titleAttributeText.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.white], range: NSMakeRange(0, primaryDataSet.dataTitle.count))
+                titleAttributeText.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.white], range: NSMakeRange(primaryDataSet.dataTitle.count + 4, secondaryData.dataTitle.count))
                 mainTitleText = titleAttributeText
             }
             else {
@@ -309,17 +310,6 @@ extension NSString
                 context?.saveGState()
                 
                 
-                // Create the under graph gradient - only if
-                if dataSets.count == 1 || (dataSets.count == 2 && index == 0)
-                {
-                    let shadowBezier = graphPath.copy() as! UIBezierPath
-                    shadowBezier.addLine(to: CGPoint(x: columnXPosition(currentDataSet.dataPoints, CGFloat(currentDataSet.dataPoints.count) - 1.0), y: graphInsetFrame.maxY))
-                    shadowBezier.addLine(to: CGPoint(x: columnXPosition(currentDataSet.dataPoints, 0.0), y: graphInsetFrame.maxY))
-                    shadowBezier.close()
-                    shadowBezier.addClip()
-//                    context?.drawLinearGradient(gradiant!, start: CGPoint(x: 0, y: graphInsetFrame.origin.y), end: CGPoint(x: 0, y: bounds.height), options: CGGradientDrawingOptions.drawsBeforeStartLocation)
-                }
-                
                 // Cycle through all the points drawing the data circles
                 context?.restoreGState()
                 currentDataSet.color.setFill()
@@ -327,18 +317,7 @@ extension NSString
                 var counter             = 0;
                 var dataAverage:CGFloat = 0.0
                 var dotRadius:CGFloat   = 0.0
-                if currentDataSet.dataPoints.count < 10 {
-                    dotRadius = 8.0
-                }
-                else if currentDataSet.dataPoints.count < 30 {
-                    dotRadius = 6.0
-                }
-                else if currentDataSet.dataPoints.count < 45 {
-                    dotRadius = 4.0
-                }
-                else if currentDataSet.dataPoints.count < 60 {
-                    dotRadius = 2.5
-                }
+                dotRadius = 4.0
                 
                 // Cycle through all of the datapoints and draw the dots
                 for currentPt in currentDataSet.dataPoints
@@ -355,10 +334,7 @@ extension NSString
                 dataAverage /= CGFloat(currentDataSet.dataPoints.count)
                 delegate?.averageCalculated?(self, graphDataAverage: dataAverage, dataSet: currentDataSet)
                 
-//                let avgString = NSString.singlePrecisionFloat(dataAverage, attemptToTrim: true)
-//                averageValueLabel.text = (averageValueLabel.text!.characters.count > 0) ? "\(averageValueLabel.text!) | \(avgString)" : "Average: \(avgString)"
-                
-                // Draw the 3 horizontal lines and the indicator lablese
+                // Draw the horizontal lines and the indicator lables
                 let graphMidPtY   = graphInsetFrame.origin.y + graphInsetFrame.size.height/2.0
                 let averageWeight = (maxValue.lineGraphValue() + minValue.lineGraphValue())/2.0
                 var bgLinePoints  = [graphInsetFrame.origin.y+graphInsetFrame.size.height, graphMidPtY, graphInsetFrame.origin.y]
@@ -366,8 +342,8 @@ extension NSString
                                                 NSString.singlePrecisionFloat(averageWeight, attemptToTrim: true) as NSString,
                                                 NSString.singlePrecisionFloat(maxValue.lineGraphValue(), attemptToTrim: true) as NSString]
                 
-                // Enter here if there are a lot of graph points and you could have more than just 3 lines
-                if currentDataSet.dataPoints.count > 30
+                // Enter here if there are a lot of graph points and you could have more than just 2 lines
+                if currentDataSet.dataPoints.count > 2
                 {
                     bgLinePoints.insert(graphMidPtY + graphInsetFrame.size.height/4.0, at: 1)
                     bgLabelValues.insert(NSString.singlePrecisionFloat((averageWeight + minValue.lineGraphValue()) / 2.0, attemptToTrim: true) as NSString, at: 1)
@@ -388,7 +364,7 @@ extension NSString
                     let currentLabel  = UILabel()
                     currentLabel.text = bgLabelValues[counter] as String
                     counter += 1
-                    currentLabel.textColor = UIColor.white
+                    currentLabel.textColor = UIColor.darkGray
                     currentLabel.font      = LineGraphView.lightFont()
                     currentLabel.sizeToFit()
                     
@@ -411,7 +387,7 @@ extension NSString
                     {
                         let xIndex:Int       = min(Int((CGFloat(i)/CGFloat(xLabelCount-1)) * CGFloat(currentDataSet.dataPoints.count)), currentDataSet.dataPoints.count - 1)
                         let titleLabel       = UILabel()
-                        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
+                        titleLabel.textColor = UIColor.darkGray
                         titleLabel.font      = LineGraphView.boldFont()
                         titleLabel.text      = currentDataSet.dataPoints[xIndex].lineGraphTitle()
                         titleLabel.textAlignment = .center
