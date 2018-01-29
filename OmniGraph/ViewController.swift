@@ -16,30 +16,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let secondaryDataSet = LineGraphDataSet(title: "Average Reach",
+        let primaryDataSet = LineGraphDataSet(title: "Average Reach",
                                              dataPoints: [LineGraphTestData(title: "Tier1", value: 31.7),
                                                           LineGraphTestData(title: "Tier2", value: 40.0),
                                                           LineGraphTestData(title: "Tier3", value: 43.7)],
                                              color: UIColor.orange)
         
-        let primaryDataSet = LineGraphDataSet(title: "Frequency by segment",
+        let secondaryDataSet = LineGraphDataSet(title: "Frequency by segment",
                                                dataPoints: [LineGraphTestData(title: "Tier1", value: 4.2),
                                                             LineGraphTestData(title: "Tier2", value: 1.8),
                                                             LineGraphTestData(title: "Tier3", value: 1.5)],
                                                 color: UIColor.init(red: 112.0/255.0, green: 185.0/255.0, blue: 228.0/255.0, alpha: 1.0))
         
-        let dataPlot = LineGraphDataPlot(title: "Average Reach and Frequency by Segment", primaryDataSet: primaryDataSet, secondaryDataSet:secondaryDataSet)
-//        lineGraph.dataPlots = [dataPlot]
-        
-//        let time = DispatchTime.now() + 1.0
+        let dataPlot = LineGraphDataPlot(title: "All", primaryDataSet: primaryDataSet, secondaryDataSet:secondaryDataSet)
+        let frequencyPlot  = LineGraphDataPlot(title: "Frequency", primaryDataSet: primaryDataSet, secondaryDataSet:nil)
+        let reachPlot  = LineGraphDataPlot(title: "Reach", primaryDataSet: secondaryDataSet, secondaryDataSet:nil)
 
         
-            self.lineGraph.finishLoading([dataPlot])
+        self.lineGraph.finishLoading([dataPlot,frequencyPlot,reachPlot])
 
         lineGraph.layer.cornerRadius   = 6.0
         lineGraph.clipsToBounds        = true
-        
-        
         
     }
 

@@ -107,14 +107,6 @@ extension NSString
             addSubview(titleLabel)
         }
         
-        // Configure and add the average label
-//        if !subviews.contains(averageValueLabel) {
-//            averageValueLabel.font          = LineGraphView.regularFont(12.0)
-//            averageValueLabel.textColor     = UIColor.white
-//            averageValueLabel.textAlignment = titleAlignment
-//            averageValueLabel.text          = ""
-//            insertSubview(averageValueLabel, belowSubview: titleLabel)
-//        }
         
         if plotSegmentedController == nil && dataPlots.count > 1 {
             
@@ -124,7 +116,7 @@ extension NSString
                 plotTitles.append(currentPlot.plotTitle)
             }
             plotSegmentedController            = UISegmentedControl(items: plotTitles)
-            plotSegmentedController!.tintColor = UIColor.white
+            plotSegmentedController!.tintColor = UIColor.init(red: 112.0/255.0, green: 185.0/255.0, blue: 228.0/255.0, alpha: 1.0)
             plotSegmentedController!.setTitleTextAttributes([NSAttributedStringKey.font : LineGraphView.lightFont()], for: UIControlState())
             plotSegmentedController!.setTitleTextAttributes([NSAttributedStringKey.font : LineGraphView.boldFont()], for: .selected)
             plotSegmentedController!.addTarget(self, action: #selector(LineGraphView.activePlotValueChanged(_:)), for: .valueChanged)
@@ -138,24 +130,24 @@ extension NSString
             loadingDimView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             loadingDimView.isHidden          = true
             
-            loadingActivityView.tintColor        = UIColor.white
+            loadingActivityView.tintColor        = UIColor.darkGray
             loadingActivityView.hidesWhenStopped = true
             loadingDimView.addSubview(loadingActivityView)
             addSubview(loadingDimView)
         }
         
-        if (allowFullScreen && fullScreenButton == nil)
-        {
-            let fullScreenButtonSide:CGFloat = 15.0
-            
-            // Initialize the full screen button and functionality
-            fullScreenButton            = UIButton(type: .custom)
-            fullScreenButton!.tintColor = UIColor.white
-            fullScreenButton!.frame     = CGRect(x: 15.0, y: 15.0, width: fullScreenButtonSide, height: fullScreenButtonSide)
-            
-            fullScreenButton!.autoresizingMask = [.flexibleRightMargin, .flexibleBottomMargin]
-            addSubview(fullScreenButton!)
-        }
+//        if (allowFullScreen && fullScreenButton == nil)
+//        {
+//            let fullScreenButtonSide:CGFloat = 15.0
+//
+//            // Initialize the full screen button and functionality
+//            fullScreenButton            = UIButton(type: .custom)
+//            fullScreenButton!.tintColor = UIColor.white
+//            fullScreenButton!.frame     = CGRect(x: 15.0, y: 15.0, width: fullScreenButtonSide, height: fullScreenButtonSide)
+//
+//            fullScreenButton!.autoresizingMask = [.flexibleRightMargin, .flexibleBottomMargin]
+//            addSubview(fullScreenButton!)
+//        }
     }
     
     /**
@@ -184,15 +176,17 @@ extension NSString
     override func layoutSubviews() {
         
         super.layoutSubviews()
-        let labelWidth             = bounds.width * 0.5
+        let labelWidth             = bounds.width * 0.8
         let titleYPadding:CGFloat  = isFullScreen ? 15.0 : 5.0
-        let labelHeight:CGFloat    = 20.0
+        let labelHeight:CGFloat    = 40.0
         
-        titleLabel.font          = isFullScreen ? LineGraphView.boldFont(18.0) : LineGraphView.boldFont()
+        titleLabel.font          = isFullScreen ? LineGraphView.boldFont(18.0) : LineGraphView.regularFont(14.0)
         titleLabel.textAlignment = titleAlignment
-        let xOrigin              = (titleAlignment == .center) ? (bounds.width*0.25) : max(graphInsetFrame.origin.x, 40.0)
+        let xOrigin              = (titleAlignment == .center) ? (bounds.width * 0.1) : max(graphInsetFrame.origin.x, 40.0)
         titleLabel.frame         = CGRect(x: xOrigin, y: titleYPadding, width: labelWidth, height: labelHeight)
-        titleLabel.contentMode = .scaleAspectFill
+        titleLabel.contentMode = .center
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.numberOfLines  = 2
         averageValueLabel.frame         = CGRect(x: xOrigin, y: titleLabel.frame.maxY, width: labelWidth, height: 16.0)
         averageValueLabel.textAlignment = titleAlignment
         
@@ -213,11 +207,9 @@ extension NSString
             if let secondaryData = dataPlots[currentPlotIdx].secondaryDataSet
             {
                 let primaryDataSet = dataPlots[currentPlotIdx].primaryDataSet
-                let titleAttributeText = NSMutableAttributedString(string: "\(primaryDataSet.dataTitle) vs \(secondaryData.dataTitle)",
+                let titleAttributeText = NSMutableAttributedString(string: "\(primaryDataSet.dataTitle) and \(secondaryData.dataTitle)",
                     attributes: [NSAttributedStringKey.font : titleFont,
-                                 NSAttributedStringKey.foregroundColor : UIColor.white])
-                titleAttributeText.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.white], range: NSMakeRange(0, primaryDataSet.dataTitle.count))
-                titleAttributeText.addAttributes([NSAttributedStringKey.foregroundColor:UIColor.white], range: NSMakeRange(primaryDataSet.dataTitle.count + 4, secondaryData.dataTitle.count))
+                                 NSAttributedStringKey.foregroundColor : UIColor.darkGray])
                 mainTitleText = titleAttributeText
             }
             else {
@@ -278,9 +270,10 @@ extension NSString
         
         // Draw the actual data plots
         loadingDimView.isHidden = true
-        if currentPlotIdx < dataPlots.count && dataPlots[currentPlotIdx].primaryDataSet.dataPoints.count > 0
+        if currentPlotIdx < dataPlots.count && (dataPlots[currentPlotIdx].primaryDataSet.dataPoints.count > 0)
         {
             var dataSets = [self.dataPlots[currentPlotIdx].primaryDataSet];
+            
             if let secondDataSet = self.dataPlots[currentPlotIdx].secondaryDataSet {
                 dataSets.append(secondDataSet)
             }
@@ -369,11 +362,11 @@ extension NSString
                     currentLabel.sizeToFit()
                     
                     // Primary data points are drawn on the right margin, secondary on the left
-                    let xOrigin = (index == 0) ? (bgLineWidth+10.0) : (graphInsetFrame.origin.x - (currentLabel.bounds.width))
+                    let xOrigin = (index == 0) ? (graphInsetFrame.origin.x - (currentLabel.bounds.width + 5.0)):(bgLineWidth+5.0)
                     currentLabel.drawText(in: CGRect(x: xOrigin, y: currentBGYPoint-10, width: bounds.width-(bgLineWidth + 5), height: 20))
                 }
                 
-                UIColor(white: 1.0, alpha: 0.5).setStroke()
+                UIColor.darkGray.setStroke()
                 bgLinePath.lineWidth = 1.0
                 bgLinePath.stroke()
                 
