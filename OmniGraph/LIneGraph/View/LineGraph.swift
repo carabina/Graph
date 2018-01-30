@@ -22,7 +22,6 @@ extension NSString
         let string = NSString(format: "%.1f", currentFloat)
         return (trim && string.contains(".0")) ? string.replacingOccurrences(of: ".0", with: "") : string as String
     }
-    
 }
 
 @IBDesignable class LineGraphView: UIView {
@@ -135,19 +134,6 @@ extension NSString
             loadingDimView.addSubview(loadingActivityView)
             addSubview(loadingDimView)
         }
-        
-//        if (allowFullScreen && fullScreenButton == nil)
-//        {
-//            let fullScreenButtonSide:CGFloat = 15.0
-//
-//            // Initialize the full screen button and functionality
-//            fullScreenButton            = UIButton(type: .custom)
-//            fullScreenButton!.tintColor = UIColor.white
-//            fullScreenButton!.frame     = CGRect(x: 15.0, y: 15.0, width: fullScreenButtonSide, height: fullScreenButtonSide)
-//
-//            fullScreenButton!.autoresizingMask = [.flexibleRightMargin, .flexibleBottomMargin]
-//            addSubview(fullScreenButton!)
-//        }
     }
     
     /**
@@ -298,7 +284,7 @@ extension NSString
                 
                 // Stroke the main graph plot
                 currentDataSet.color.setStroke()
-                graphPath.lineWidth = 3.0
+                graphPath.lineWidth = 1.0
                 graphPath.stroke()
                 context?.saveGState()
                 
@@ -366,8 +352,8 @@ extension NSString
                     currentLabel.drawText(in: CGRect(x: xOrigin, y: currentBGYPoint-10, width: bounds.width-(bgLineWidth + 5), height: 20))
                 }
                 
-                UIColor.darkGray.setStroke()
-                bgLinePath.lineWidth = 1.0
+                UIColor.lightGray.setStroke()
+                bgLinePath.lineWidth = 0.2
                 bgLinePath.stroke()
                 
                 // Draw the x axis labels
@@ -381,7 +367,7 @@ extension NSString
                         let xIndex:Int       = min(Int((CGFloat(i)/CGFloat(xLabelCount-1)) * CGFloat(currentDataSet.dataPoints.count)), currentDataSet.dataPoints.count - 1)
                         let titleLabel       = UILabel()
                         titleLabel.textColor = UIColor.darkGray
-                        titleLabel.font      = LineGraphView.boldFont()
+                        titleLabel.font      = LineGraphView.lightFont()
                         titleLabel.text      = currentDataSet.dataPoints[xIndex].lineGraphTitle()
                         titleLabel.textAlignment = .center
                         
