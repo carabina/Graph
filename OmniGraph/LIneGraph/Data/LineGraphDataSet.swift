@@ -11,14 +11,14 @@ import UIKit
 class LineGraphDataPlot: NSObject {
     
     var plotTitle = ""
-    var primaryDataSet:LineGraphDataSet
-    var secondaryDataSet:LineGraphDataSet?
+    var primaryDataSets:[LineGraphDataSet]
+    var secondaryDataSets:[LineGraphDataSet]?
     
-    init(title:String, primaryDataSet:LineGraphDataSet, secondaryDataSet:LineGraphDataSet?)
+    init(title:String, primaryDataSet:[LineGraphDataSet], secondaryDataSet:[LineGraphDataSet]?)
     {
         self.plotTitle       = title
-        self.primaryDataSet  = primaryDataSet
-        self.secondaryDataSet = secondaryDataSet
+        self.primaryDataSets  = primaryDataSet
+        self.secondaryDataSets = secondaryDataSet
     }
 }
 
@@ -30,7 +30,6 @@ class LineGraphDataSet: NSObject {
     
     var dataTitle:String
     var dataPoints:[LineGraphDataPoint]
-    
     var color:UIColor
     
     init(title:String, dataPoints:[LineGraphDataPoint], color:UIColor)

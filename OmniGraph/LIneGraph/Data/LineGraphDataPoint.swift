@@ -29,8 +29,8 @@ import UIKit
 /// Generic data object that is designed to feed the GraphDataPoint data source
 class LineGraphData <LineGraphDataPoint> {
     
-    fileprivate let title:String
-    fileprivate let value:CGFloat
+    private let title:String
+    private let value:CGFloat
     
     init(title:String, value:CGFloat)
     {
