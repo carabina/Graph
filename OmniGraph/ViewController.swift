@@ -23,7 +23,7 @@ class ViewController: UIViewController {
                                              color: UIColor.orange)
         let secondPrimaryDataSet = LineGraphDataSet(title: "Q2",
                                               dataPoints: [LineGraphTestData(title: "Tier1", value: 50),
-                                                           LineGraphTestData(title: "Tier2", value: 100),
+                                                           LineGraphTestData(title: "Tier2", value: 190),
                                                            LineGraphTestData(title: "Tier3", value: 21)],
                                               color: UIColor.cyan)
         let thirdPrimaryDataSet = LineGraphDataSet(title: "Q3",
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 
 
         //[secondaryDataSet,thirdDataSet,fourthDataSet]
-        let dataPlot = LineGraphDataPlot(title: "All", primaryDataSet: [primaryDataSet,secondPrimaryDataSet,thirdPrimaryDataSet], secondaryDataSet:nil)
+        let dataPlot = LineGraphDataPlot(title: "All", primaryDataSet: [primaryDataSet,secondPrimaryDataSet,thirdPrimaryDataSet], secondaryDataSet:[secondaryDataSet,thirdDataSet,fourthDataSet])
         let frequencyPlot  = LineGraphDataPlot(title: "Frequency", primaryDataSet: [primaryDataSet], secondaryDataSet:nil)
         let reachPlot  = LineGraphDataPlot(title: "Reach", primaryDataSet: [secondaryDataSet,thirdDataSet], secondaryDataSet:nil)
 
