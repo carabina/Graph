@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let primaryDataSet = LineGraphDataSet(title: "2017-18",
+        let primaryDataSet = LineGraphDataSet(title: "Q1",
                                              dataPoints: [LineGraphTestData(title: "Tier1", value: 31.7),
                                                           LineGraphTestData(title: "Tier2", value: 40.0),
                                                           LineGraphTestData(title: "Tier3", value: 43.7)],
@@ -26,6 +26,12 @@ class ViewController: UIViewController {
                                                            LineGraphTestData(title: "Tier2", value: 100),
                                                            LineGraphTestData(title: "Tier3", value: 21)],
                                               color: UIColor.cyan)
+        let thirdPrimaryDataSet = LineGraphDataSet(title: "Q3",
+                                                    dataPoints: [LineGraphTestData(title: "Tier1", value: 25),
+                                                                 LineGraphTestData(title: "Tier2", value: 32),
+                                                                 LineGraphTestData(title: "Tier3", value: 43)],
+                                                    color: UIColor.blue)
+
 
 //        LineGraphTestData(title: "Tier3", value: 1.5)
         
@@ -49,12 +55,11 @@ class ViewController: UIViewController {
 
 
         //[secondaryDataSet,thirdDataSet,fourthDataSet]
-        let dataPlot = LineGraphDataPlot(title: "All", primaryDataSet: [primaryDataSet,secondPrimaryDataSet], secondaryDataSet:[secondaryDataSet,fourthDataSet])
+        let dataPlot = LineGraphDataPlot(title: "All", primaryDataSet: [primaryDataSet,secondPrimaryDataSet,thirdPrimaryDataSet], secondaryDataSet:nil)
         let frequencyPlot  = LineGraphDataPlot(title: "Frequency", primaryDataSet: [primaryDataSet], secondaryDataSet:nil)
         let reachPlot  = LineGraphDataPlot(title: "Reach", primaryDataSet: [secondaryDataSet,thirdDataSet], secondaryDataSet:nil)
 
-        
-        self.lineGraph.finishLoading([dataPlot,reachPlot,frequencyPlot],title: "Average Reach and Frequency by Segment")
+        self.lineGraph.finishLoading([dataPlot],title: "Average Reach and Frequency by Segment",horizontalLines: 6)
 
         lineGraph.layer.cornerRadius   = 6.0
         lineGraph.clipsToBounds        = true

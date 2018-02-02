@@ -60,8 +60,7 @@ extension NSString
     var isFullScreen   = false
     var primaryLabelSuffix = ""
     var secondaryLabelSuffix = ""
-    var numPrimaryLines = 10
-    var numSecondaryLines = 5
+    var numOfLines = 5
     // MARK: - Initialize Methods
     
     
@@ -78,10 +77,9 @@ extension NSString
         }
     }
     
-    func setNumberOfHorizontalLines(primary:Int,secondary:Int){
-        self.numPrimaryLines = primary
-        self.numSecondaryLines = secondary
-    }
+    func setNumberOfHorizontalLines(primary:Int){
+        self.numOfLines = primary
+  }
     
     
     /**
@@ -212,7 +210,7 @@ extension NSString
                 let indicatorView =  UIView.init(frame: CGRect.init(x: indicatorXOrigin, y: indicatorYOrigin, width: 125, height: 18))
                 let colorView  = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 1))
                 colorView.backgroundColor = aDataSet.color
-                let label:UILabel = UILabel.init(frame: CGRect.init(x: colorView.frame.width + 2, y: 0, width:indicatorView.frame.width - (colorView.frame.width + 2) , height: 20))
+                let label:UILabel = UILabel.init(frame: CGRect.init(x: colorView.frame.width + 2, y: 0, width:indicatorView.frame.width - (colorView.frame.width + 2) , height: 18))
                 label.text = aDataSet.dataTitle
                 label.font = LineGraphView.regularFont(8.0)
                 colorView.center.y  = label.center.y
@@ -246,10 +244,10 @@ extension NSString
     
     
     // MARK: - View Layout Methods
-    func finishLoading(_ dataPlots:[LineGraphDataPlot], title:String) {
+    func finishLoading(_ dataPlots:[LineGraphDataPlot], title:String,horizontalLines:Int) {
         self.dataPlots   = dataPlots
+        self.numOfLines = horizontalLines
         self.title = title
-        
         currentlyLoading = false
         setNeedsDisplay()
         initializeSubViews()
@@ -342,7 +340,7 @@ extension NSString
         var bgLabelValues = [NSString]()
         var bgLinePoints = [CGFloat]()
         
-        for sideIndex in 0..<self.numPrimaryLines{
+        for sideIndex in 0..<self.numOfLines{
             bgLabelValues.append(NSString.singlePrecisionFloat(valueInterval * CGFloat(sideIndex), attemptToTrim: true) as NSString)
             bgLinePoints.append(graphInsetFrame.origin.y + graphInsetFrame.height - (CGFloat(sideIndex) * frameInterval))
         }
@@ -387,8 +385,8 @@ extension NSString
                 
             }
             
-            let valueInterval = ( maxValue.lineGraphValue() + minValue.lineGraphValue()) / CGFloat(self.numPrimaryLines)
-            let frameInterval = graphInsetFrame.height / CGFloat(self.numPrimaryLines)
+            let valueInterval = ( maxValue.lineGraphValue() + minValue.lineGraphValue()) / CGFloat(self.numOfLines)
+            let frameInterval = graphInsetFrame.height / CGFloat(self.numOfLines)
             
             // Move to the start add the main graph plot
             let graphPath = UIBezierPath()
