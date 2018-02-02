@@ -27,9 +27,9 @@ class ViewController: UIViewController {
                                                            LineGraphTestData(title: "Tier3", value: 21)],
                                               color: UIColor.cyan)
         let thirdPrimaryDataSet = LineGraphDataSet(title: "Q3",
-                                                    dataPoints: [LineGraphTestData(title: "Tier1", value: 25),
-                                                                 LineGraphTestData(title: "Tier2", value: 32),
-                                                                 LineGraphTestData(title: "Tier3", value: 43)],
+                                                    dataPoints: [LineGraphTestData(title: "Tier1", value: 30),
+                                                                 LineGraphTestData(title: "Tier2", value: 10),
+                                                                 LineGraphTestData(title: "Tier3", value: 30)],
                                                     color: UIColor.blue)
 
 

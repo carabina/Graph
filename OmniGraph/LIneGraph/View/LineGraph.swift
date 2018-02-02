@@ -385,8 +385,8 @@ extension NSString
                 
             }
             
-            let valueInterval = ( maxValue.lineGraphValue() + minValue.lineGraphValue()) / CGFloat(self.numOfLines)
-            let frameInterval = graphInsetFrame.height / CGFloat(self.numOfLines)
+            let valueInterval = ( maxValue.lineGraphValue() + minValue.lineGraphValue()) / CGFloat(self.numOfLines - 1)
+            let frameInterval = graphInsetFrame.height / CGFloat(self.numOfLines - 1)
             
             // Move to the start add the main graph plot
             let graphPath = UIBezierPath()
